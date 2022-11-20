@@ -53,15 +53,15 @@ class MirrorStatus:
         STATUS_SEEDING = "Seed"
 
 class EngineStatus:
-    STATUS_ARIA = "Aria2c📶"
-    STATUS_GD = "Google Api♻️"
-    STATUS_MEGA = "MegaSDK⭕️"
+    STATUS_ARIA = "Aria2c🅰️"
+    STATUS_GD = "Google Api😶"
+    STATUS_MEGA = "MegaSDKⓂ️"
     STATUS_QB = "qBittorrent🦠"
-    STATUS_TG = "Pyrogram💥"
-    STATUS_YT = "YT-dlp🌟"
+    STATUS_TG = "Pyrogram🅿️"
+    STATUS_YT = "YT-DLP🎥"
     STATUS_EXT = "Extract | pExtract⚔️"
-    STATUS_SPLIT = "FFmpeg✂️"
-    STATUS_ZIP = "p7zip🛠"
+    STATUS_SPLIT = "FFmpeg🔒"
+    STATUS_ZIP = "p7zip🔒"
 
     
 SIZE_UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
@@ -215,7 +215,7 @@ def get_readable_message():
                         else:
                             msg += f'\n<b>├ Source: </b><a href="https://t.me/c/{chatid}/{download.message.message_id}">{download.message.from_user.first_name}</a> | <b>Id :</b> <code>{download.message.from_user.id}</code>'
                             msg += f'\n<b>├ Warn :</b><code>/{BotCommands.Warn} {download.message.from_user.id}</code>"
-                            msg += f"\n<b>╰ </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"                 
+                            msg += f"\n<b>╰ </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"
                     except:
                         pass
                 else:
