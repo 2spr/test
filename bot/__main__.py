@@ -76,7 +76,7 @@ def getHerokuDetails(h_api_key, h_app_name):
             abc += f"<b>├ 👍🏻 FREE</b>: {get_readable_time(quota_remain)}\n"
         else:
             abc += f'<b></b>\n'
-            abc += f'<b>╭─《 HEROKU STATS 》</b>\n'
+            abc += f'<b>╭─《 CLOUD STATS 》</b>\n'
             abc += f"<b>├ FULL</b>: {get_readable_time(account_quota)}\n"
             abc += f"<b>├ USED</b>: {get_readable_time(quota_used)}\n"
             abc += f"<b>├ FREE</b>: {get_readable_time(quota_remain)}\n"
@@ -311,12 +311,12 @@ def log(update, context):
 
 
 help_string = '''
-<b><a href='https://github.com/codewithweeb/mirror-with-weeb'>WeebZone</a></b> - The Ultimate Telegram MIrror-Leech Bot to Upload Your File & Link in Google Drive & Telegram
+<b>A Powerful Bot to directly Mirror to Google Drive or Leech to Telegram, with Multi Direct Links Support for Enhanced Mirror-Leech from</b> - <b><a href='https://t.me/HombaleCinemas'>Hombale Cinemas</a></b>
 Choose a help category:
 '''
 
 help_string_telegraph_user = f'''
-<b><u>👤 User Commands</u></b>
+<b><u>𝖴𝗌𝖾𝗋 𝖢𝗈𝗆𝗆𝖺𝗇𝖽𝗌</u></b>
 <br><br>
 • <b>/{BotCommands.HelpCommand}</b>: To get this message
 <br><br>
@@ -402,7 +402,7 @@ help_user = telegraph.create_page(
     content=help_string_telegraph_user)["path"]
 
 help_string_telegraph_admin = f'''
-<b><u>🛡️ Admin Commands</u></b>
+<b><u>𝖠𝖽𝗆𝗂𝗇 𝖢𝗈𝗆𝗆𝖺𝗇𝖽𝗌</u></b>
 <br><br>
 • <b>/{BotCommands.PingCommand}</b>: Check how long it takes to Ping the Bot
 <br><br>
@@ -440,13 +440,14 @@ def bot_help(update, context):
         button.buildbutton("👤 User", f"https://graph.org/{help_user}")
         button.buildbutton("🛡️ Admin", f"https://graph.org/{help_admin}")
     else:
-        button.buildbutton("User", f"https://graph.org/{help_user}")
-        button.buildbutton("Admin", f"https://graph.org/{help_admin}")
+        button.buildbutton("𝒰𝓈ℯ𝓇", f"https://graph.org/{help_user}")
+        button.buildbutton("𝒜𝒹𝓂𝒾𝓃", f"https://graph.org/{help_admin}")
     sendMarkup(help_string, context.bot, update.message, button.build_menu(2))
 
 
 if SET_BOT_COMMANDS:
     botcmds = [
+        (f'{BotCommands.StartCommand}', 'Mirror'),
         (f'{BotCommands.MirrorCommand}', 'Mirror'),
         (f'{BotCommands.ZipMirrorCommand}','Mirror and upload as zip'),
         (f'{BotCommands.UnzipMirrorCommand}','Mirror and extract files'),
@@ -486,8 +487,7 @@ if SET_BOT_COMMANDS:
         (f'{BotCommands.PingCommand}','Ping the bot'),
         (f'{BotCommands.RestartCommand}','Restart the bot'),
         (f'{BotCommands.LogCommand}','Get the bot Log'),
-        (f'{BotCommands.HelpCommand}','Get detailed help'),
-        (f'{BotCommands.SleepCommand}','Sleep Bot')
+        (f'{BotCommands.HelpCommand}','Get detailed help')
     ]
 
 
@@ -553,10 +553,7 @@ def main():
                     msg += f"⌚TIME: {time}\n"
                     msg += f"🌐TIMEZONE: {TIMEZONE}\n"
                 else:
-                    msg = f"😎Bot Restarted!\n"
-                    msg += f"📅DATE: {date}\n"
-                    msg += f"⌚TIME: {time}\n"
-                    msg += f"🌐TIMEZONE: {TIMEZONE}"
+                    msg = f"ℬℴ𝓉 ℛℯ𝓈𝓉𝒶𝓇𝓉ℯ𝒹!\n"
 
                 for tag, links in data.items():
                      msg += f"\n{tag}: "
@@ -584,11 +581,11 @@ def main():
     if ospath.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
-        msg = f"😎Restarted successfully❗\n📅DATE: {date}\n⌚TIME: {time}\n🌐TIMEZONE: {TIMEZONE}\n"
+        msg = f"ℬℴ𝓉 ℛℯ𝓈𝓉𝒶𝓇𝓉ℯ𝒹!C_ID\n"
         bot.edit_message_text(msg, chat_id, msg_id)
         osremove(".restartmsg")
     elif not notifier_dict and AUTHORIZED_CHATS:
-        text = f"😎Bot Restarted❗ \n📅DATE: {date} \n⌚TIME: {time} \n🌐TIMEZONE: {TIMEZONE}"
+        text = f"ℬℴ𝓉 ℛℯ𝓈𝓉𝒶𝓇𝓉ℯ𝒹! A_C"
         for id_ in AUTHORIZED_CHATS:
             try:
                 bot.sendMessage(chat_id=id_, text=text, parse_mode=ParseMode.HTML)
@@ -613,7 +610,7 @@ def main():
     dispatcher.add_handler(stats_handler)
     dispatcher.add_handler(log_handler)
     updater.start_polling(drop_pending_updates=IGNORE_PENDING_REQUESTS)
-    LOGGER.info("💥𝐁𝐨𝐭 𝐒𝐭𝐚𝐫𝐭𝐞𝐝❗")
+    LOGGER.info("𝐁𝐨𝐭 𝐒𝐭𝐚𝐫𝐭𝐞𝐝?")
     signal(SIGINT, exit_clean_up)
 
 app.start()
